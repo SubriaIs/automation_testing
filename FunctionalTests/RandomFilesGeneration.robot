@@ -47,7 +47,7 @@ Directory with File
 	END
 
 Create Files
-    FOR	${index}	IN RANGE	1	11
+	FOR	${index}	IN RANGE	1	11
 		${file}=	Generate Random String    12    [LOWER]
 		${filename}=	Set Variable    ${file}.txt
 		Create File	${DIR}/${filename}
