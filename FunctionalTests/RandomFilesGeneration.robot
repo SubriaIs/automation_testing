@@ -23,11 +23,7 @@ Directory with File
     	IF    ${anyfiles}
 			Log 	file exists!
 		ELSE
-			FOR	${index}	IN RANGE	1	11
-				${file}=	Generate Random String    12    [LOWER]
-				${filename}=	Set Variable    ${file}.txt
-				Create File	${DIR}/${filename}
-			END	
+			Create Files
 		END
 		
 		FOR    ${allfile}    IN    @{anyfiles}
@@ -41,11 +37,7 @@ Directory with File
 		Create Directory    ${DIR}
 		Log    Directory is created.
 
-		FOR	${index}	IN RANGE	1	11
-			${file}=	Generate Random String    12    [LOWER]
-			${filename}=	Set Variable    ${file}.txt
-			Create File	${DIR}/${filename}
-		END	
+		Create Files
 
 		${files}=    List Files In Directory    ${DIR}
 
@@ -53,3 +45,10 @@ Directory with File
         	Log    ${allfile}
     	END
 	END
+
+Create Files
+    FOR	${index}	IN RANGE	1	11
+			${file}=	Generate Random String    12    [LOWER]
+			${filename}=	Set Variable    ${file}.txt
+			Create File	${DIR}/${filename}
+	END	
